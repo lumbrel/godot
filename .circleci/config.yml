@@ -1,9 +1,14 @@
-machine:
-  pre:
-    - sudo apt-get update
-    - sudo apt-get -y install scons
-    - sudo apt-get -y install build-essential subversion cmake xorg-dev libgl1-mesa-dev libglu-dev
+version: 2
+jobs:
+  build:
+    machine: true
+      pre:
+        - sudo apt-get update
+        - sudo apt-get -y install scons
+        - sudo apt-get -y install build-essential subversion cmake xorg-dev libgl1-mesa-dev libglu-dev
 
-compile:
-  override:
-    - scons platform=x11
+    steps:
+      - checkout
+      - run:
+        name: build X11
+        command: 'scons platform=x11'
