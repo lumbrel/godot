@@ -4,14 +4,12 @@ jobs:
     machine: true
     steps:
       - checkout
-
       - run:
           name: Install dependencies
           command: |
             sudo apt-get update
             sudo apt-get -y install scons
             sudo apt-get -y install build-essential subversion cmake xorg-dev libgl1-mesa-dev libglu-dev
-
       - run:
           name: build X11
           command: scons platform=x11
@@ -33,6 +31,12 @@ jobs:
       JVM_OPTS: -Xmx3200m
     steps:
       - checkout
+      - run:
+        name: Install dependencies
+        command: |
+          sudo apt-get update
+          sudo apt-get -y install scons
+          sudo apt-get -y install build-essential subversion cmake xorg-dev libgl1-mesa-dev libglu-dev
       - run:
           name: Generate project
           command: scons platform=android target=release
