@@ -19,10 +19,9 @@ jobs:
 
   build_osx:
     macos:
-      xcode: 9.0
+      xcode: "9.0"
     steps:
       - checkout
-
       - run:
           name: build OSX
           command: scons platform=osx
