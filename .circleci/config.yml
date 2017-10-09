@@ -33,10 +33,7 @@ jobs:
       - checkout
       - run:
         name: Install dependencies
-        command: |
-          apt-get update
-          apt-get -y install scons
-          apt-get -y install build-essential subversion cmake xorg-dev libgl1-mesa-dev libglu-dev
+        command: apt-get update && apt-get -y install scons
       - run:
           name: Generate project
           command: scons platform=android target=release
