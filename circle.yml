@@ -1,3 +1,8 @@
+machine:
+  pre:
+    - sudo apt-get update
+    - sudo apt-get -y install scons
+
 compile:
   override:
     - scons
