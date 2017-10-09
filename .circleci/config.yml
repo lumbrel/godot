@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  buildX11:
+  build:
     machine: true
     steps:
       - checkout
