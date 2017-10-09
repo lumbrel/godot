@@ -36,7 +36,7 @@ jobs:
       - run:
           name: Generate project
           command: scons platform=android target=release
-      -run:
+      - run:
           name: Build project
           command: |
             cd platform/android/java
