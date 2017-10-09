@@ -16,8 +16,20 @@ jobs:
           name: build X11
           command: scons platform=x11
 
+
+  build_osx:
+    macos:
+      xcode: 9.0
+    steps:
+      - checkout
+
+      - run:
+          name: build OSX
+          command: scons platform=osx
+
 workflows:
   version: 2
   build_all_platforms:
     jobs:
       - build_x11
+      - build_osx
