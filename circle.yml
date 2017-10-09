@@ -8,4 +8,4 @@ machine:
 
 compile:
   override:
-    - scons
+    - scons platform=x11
