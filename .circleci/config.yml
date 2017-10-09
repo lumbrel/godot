@@ -33,7 +33,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: apt-get update && apt-get -y install scons
+          command: sudo apt-get update && sudo apt-get -y install scons
       - run:
           name: Generate project
           command: scons platform=android target=release
