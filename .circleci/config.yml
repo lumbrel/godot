@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+
+      - run:
+          name: Install dependencies
+          command: |
+            sudo apt-get update
+            sudo apt-get -y install scons
+            sudo apt-get -y install build-essential subversion cmake xorg-dev libgl1-mesa-dev libglu-dev
+
+      - run:
+          name: build X11
+          command: scons platform=x11
