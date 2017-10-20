@@ -24,6 +24,19 @@ jobs:
           name: build OSX
           command: scons platform=osx
 
+  build_ios:
+    macos:
+      xcode: "9.0"
+    steps:
+      - checkout
+      - run: brew install scons
+      - run:
+          name: build iOS
+          command: |
+            scons p=iphone tools=no bits=32 target=release arch=arm
+            scons p=iphone tools=no bits=64 target=release arch=arm64
+            lipo -create bin/godot.iphone.opt.32 bin/godot.iphone.opt.64 -output bin/godot.iphone.opt.universal
+
   build_android:
     docker:
       - image: lumbrel/android:api-24-alpha-ndk
@@ -53,4 +66,5 @@ workflows:
     jobs:
       - build_x11
       - build_osx
+      - build_ios
       - build_android
