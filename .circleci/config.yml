@@ -26,9 +26,10 @@ jobs:
 
   build_android:
     docker:
-      - image: circleci/android:api-25-alpha
+      - image: lumbrel/android:api-24-alpha-ndk
     environment:
       JVM_OPTS: -Xmx3200m
+      ANDROID_NDK_ROOT: /opt/android/sdk/ndk-bundle
     steps:
       - checkout
       - run:
